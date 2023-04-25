@@ -3,21 +3,21 @@ const { Schema, model } = require('mongoose')
 
 //name, occupation, catchPhrase
 const celebritySchema = new Schema({
-name: {
-    type: String,
-    required: true,
-},
+    name: {
+        type: String,
+        required: true,
+    },
 
-occupation:{
-    type: String,
-    default: 'unknown',
-},
+    occupation: {
+        type: String,
+        default: 'unknown',
+    },
 
-catchPhrase: {
-   type: String,
-   required: true, 
-}
-}) 
+    catchPhrase: {
+        type: String,
+        required: true,
+    }
+})
 
 
 const Celebrity = model('Celebrity', celebritySchema)

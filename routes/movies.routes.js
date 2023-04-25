@@ -34,17 +34,12 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
-        // .populate('celebrity')
-        Movie
-            .findById(id)
-            .then(movie => res.render('movies/movie-details', movie))
-            .catch(err => {
-                console.log(err);
-            });
 
+        const movie = await Movie.findById(id).populate('cast')
+        res.render('movies/movie-details', { movie })
     }
     catch (error) {
         console.log(error)
